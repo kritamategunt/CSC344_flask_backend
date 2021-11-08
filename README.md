@@ -1,1 +1,1 @@
-# CSC344_flask_backend
+csc344_backend
