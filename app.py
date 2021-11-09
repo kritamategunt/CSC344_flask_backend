@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, jsonify, request
 
 app = Flask(__name__)
 
@@ -27,8 +27,16 @@ def home():
 @app.route("/about")
 def about():
     return render_template('about.html',title = 'About' )
-    
-
+ 
+@app.route('/test', methods = ['GET','POST'])
+def test():
+    if request.method == 'GET':
+        return jsonify({'res':'200 Ok ><'})
+    elif request.method == 'POST':
+        req_Json = request.json
+        input = req_Json['name']
+        return jsonify({'res': 'Hi, ' + input})
+        
 
 
 if __name__ == '__main__':
