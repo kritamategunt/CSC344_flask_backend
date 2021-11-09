@@ -39,7 +39,7 @@ def home():
 def about():
     return render_template('about.html',title = 'About' )
  
-@app.route('/prediction', methods = ['GET','POST'])
+@app.route('/predict', methods = ['GET','POST'])
 def prediction():
     if request.method == 'GET':
         return jsonify({'res':'200 Ok ><'},{'predict':predict},{'x_value':x_value})
