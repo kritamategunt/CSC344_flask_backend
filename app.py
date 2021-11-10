@@ -42,25 +42,21 @@ def about():
 @app.route('/predict', methods = ['GET','POST'])
 def prediction():
     if request.method == 'GET':
-        return jsonify({'res':'200 Ok ><'},{'predict':predict},{'x_value':x_value})
+        return jsonify([{'res':'200 Ok ><','predict':predict,'x_value':x_value}])
     elif request.method == 'POST':
-        req_Json = request.json
-        input = req_Json['input_x']
-        return jsonify({'res': 'value_x, ' + input})
+        input1 = request.json['input_x1']
+        input2 = request.json['input_x2']
+        input3 = request.json['input_x3']
+        input4 = request.json['input_x4']
+        input5 = request.json['input_x5']
+        input6 = request.json['input_x6']
+        input7 = request.json['input_x7']
         
-# @app.route("/predict", methods=['POST'])
-# def predict():
-#     if request.method == 'POST':
-#         try:
-#             data = request.get_json()
-#             years_of_experience = float(data["yearsOfExperience"])
-            
-#             lin_reg = joblib.load("./linear_regression_model.pkl")
-#         except ValueError:
-#             return jsonify("Please enter a number.")
-
-#         return jsonify(lin_reg.predict(years_of_experience).tolist())
-
+        aws = int(input1)+1
+        print(aws)
+        return jsonify([{'ip' : int(input1)+int(input2)}])
+        
+ 
 
 if __name__ == '__main__':
     app.run(debug=True)
