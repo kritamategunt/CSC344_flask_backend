@@ -7,18 +7,10 @@ import os
 import numpy as np
 import pickle
 import numpy as np
-import matplotlib.pyplot as plt
-from scipy import stats
-import numpy
-from sklearn.metrics import r2_score
-# import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
-import pickle
 # import requests
 import json
 # from sklearn.externals import joblib
-from model import predict, x_value
+from model import reg
 
 app = Flask(__name__)
 
@@ -66,6 +58,7 @@ def about():
 
 
 # allow both GET and POST requests
+
 @app.route('/predict', methods=['GET', 'POST'])
 def form_example():
     if request.method == 'POST':  # this block is only entered when the form is submitted
@@ -84,6 +77,7 @@ def form_example():
                 tempX = tempX+inputX[i]
 
             else:
+                #int(tempX)
                 ary_x.append(tempX)
                 tempX = ''
 
@@ -92,14 +86,31 @@ def form_example():
                 tempY = tempY+inputY[i]
 
             else:
+                #int(tempY)
                 ary_y.append(tempY)
                 tempY = ''
+        for i in range(len(ary_x)):
+            ary_x[i]=(float(ary_x[i]))
+            print(ary_x[i])
+            print(type(ary_x[i]))
 
-        return jsonify({'x': ary_x, 'y': ary_y, "inputX_predict": inputX_predict})
-        # return ary_x,ary_y
+        for i in range(len(ary_y)):
+            ary_y[i]=(float(ary_y[i]))
+            print(ary_y[i])
+            print(type(ary_y[i]))
+        
+        # print(ary_x)
+        # print(ary_y)
+        # print(inputX_predict)
+        #ans = reg(ary_x,ary_y,inputX_predict)
+        #print(ans)
+
+    
+        return jsonify({'x': ary_x, 'y': ary_y, "inputX_predict": inputX_predict,"ans":'ans'})
+        #return ary_x,ary_y
 
     elif request.method == "GET":
-        return jsonify({'status ': 200, 'predict': predict, 'x_value': x_value})
+        return jsonify({'status ': 200, 'predict': 'model.reg', 'x_value': 'model.x_value'})
 
 
 
