@@ -110,9 +110,6 @@ def form_example():
         print('REAL INPUT')
         #print(reg(ary_x,ary_y,7))
         ans=reg(ary_x,ary_y,float(inputX_predict))
-
-
-    
         return jsonify({'x': ary_x, 'y': ary_y, "inputX_predict": inputX_predict,"ans":ans})
         #return ary_x,ary_y
 
