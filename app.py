@@ -91,22 +91,29 @@ def form_example():
                 tempY = ''
         for i in range(len(ary_x)):
             ary_x[i]=(float(ary_x[i]))
-            print(ary_x[i])
-            print(type(ary_x[i]))
+            # print(ary_x[i])
+            # print(type(ary_x[i]))
 
         for i in range(len(ary_y)):
             ary_y[i]=(float(ary_y[i]))
-            print(ary_y[i])
-            print(type(ary_y[i]))
+            # print(ary_y[i])
+            # print(type(ary_y[i]))
         
         # print(ary_x)
         # print(ary_y)
         # print(inputX_predict)
         #ans = reg(ary_x,ary_y,inputX_predict)
         #print(ans)
+        # print('--MOCK INPUT--')
+        # print(reg([1,2,3],[1,2,3],4))
+
+        print('REAL INPUT')
+        #print(reg(ary_x,ary_y,7))
+        ans=reg(ary_x,ary_y,float(inputX_predict))
+
 
     
-        return jsonify({'x': ary_x, 'y': ary_y, "inputX_predict": inputX_predict,"ans":'ans'})
+        return jsonify({'x': ary_x, 'y': ary_y, "inputX_predict": inputX_predict,"ans":ans})
         #return ary_x,ary_y
 
     elif request.method == "GET":
@@ -146,3 +153,4 @@ def status():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    
