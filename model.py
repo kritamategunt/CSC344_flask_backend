@@ -22,19 +22,19 @@ def reg(Xin,Yin,x_predict):
   y = Yin
   #y as a selling number from input in our application
   x_value = x_predict
-  for i in range(30):
+  # for i in range(30):
 
-    mymodel_i = numpy.poly1d(numpy.polyfit(x, y, i+1))
-    nextScore = r2_score(y, mymodel_i(x))
+  #   mymodel_i = numpy.poly1d(numpy.polyfit(x, y, i+1))
+  #   nextScore = r2_score(y, mymodel_i(x))
 
-    mymodel = numpy.poly1d(numpy.polyfit(x, y, i))
-    pevScore = r2_score(y, mymodel(x))
+  mymodel = numpy.poly1d(numpy.polyfit(x, y, 0))
+  #   pevScore = r2_score(y, mymodel(x))
     
-    #print('round,',i)
-    if pevScore < nextScore:
-      nextScore = pevScore
-    elif nextScore <= pevScore:
-      break
+  #   #print('round,',i)
+  #   if pevScore < nextScore:
+  #     nextScore = pevScore
+  #   elif nextScore <= pevScore:
+  #     break
     
 
   # print('r value ',r2_score(y, mymodel_i(x)))
@@ -50,7 +50,7 @@ def reg(Xin,Yin,x_predict):
   return(predict)
 
 
-x1 = [1,2,3,4,5,6]
-y1= [1,2,3,4,5,6]
-x2 = 7
-reg(x1,y1,x2)
+# x1 = [1,2,3,4,5,6]
+# y1= [1,2,3,4,5,6]
+# x2 = 7
+# reg(x1,y1,x2)

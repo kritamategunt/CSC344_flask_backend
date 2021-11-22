@@ -90,12 +90,12 @@ def form_example():
                 ary_y.append(tempY)
                 tempY = ''
         for i in range(len(ary_x)):
-            ary_x[i]=(float(ary_x[i]))
+            ary_x[i]=(int(ary_x[i]))
             # print(ary_x[i])
             # print(type(ary_x[i]))
 
         for i in range(len(ary_y)):
-            ary_y[i]=(float(ary_y[i]))
+            ary_y[i]=(int(ary_y[i]))
             # print(ary_y[i])
             # print(type(ary_y[i]))
         
